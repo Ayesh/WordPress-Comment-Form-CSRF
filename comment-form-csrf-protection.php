@@ -28,7 +28,7 @@ add_action('comment_form', function () {
 		'build_id' => 'comment-form-csrf-' . base64_encode(random_bytes(32)),
 		'wp_nonce' => wp_create_nonce('comment_form_csrf'),
 	];
-	$fields['csrf_token'] = \hash_hmac('sha256', $fields['wp_nonce'],
+	$fields['csrf_token'] = \hash_hmac('sha256', $fields['build_id'] . $fields['wp_nonce'],
 		\SECURE_AUTH_KEY);
 
 	foreach ($fields as $name => $value) {
@@ -51,7 +51,7 @@ add_action('pre_comment_on_post', function () {
 		}
 
 		return \hash_equals(
-			\hash_hmac('sha256', $_POST['wp_nonce'], \SECURE_AUTH_KEY),
+			\hash_hmac('sha256', $_POST['build_id'] . $_POST['wp_nonce'], \SECURE_AUTH_KEY),
 			$_POST['csrf_token']
 		);
 	};
