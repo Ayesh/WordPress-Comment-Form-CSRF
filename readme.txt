@@ -19,3 +19,9 @@ See this issue for more information: https://core.trac.wordpress.org/ticket/1093
 This is a tiny (fewer than 40 effect lines of code) module that adds a secure token to the comment form and validate it before accepting any comment, thus making your comment forms secure as they should\'ve been for all these years!
 
 It provides no UI - just install it and you are all set!
+
+== Installation ==
+
+1. Upload the plugin files to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
+2. Activate the plugin through the 'Plugins' screen in WordPress.
+3. You are all set! There is nothing to configure. Your comment forms will contain the hidden token fields that will be properly validated upon submission.
