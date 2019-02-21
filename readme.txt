@@ -20,6 +20,9 @@ This is a tiny (fewer than 40 effect lines of code) module that adds a secure to
 
 It provides no UI - just install it and you are all set!
 
+1. This plugins adds a secret cryptographically-secure token to the comment form. This is a unique value and is computationally impractical to guess it.
+2. Upon comment subission, the comment is rejected if the secret tokens are not present or computationally invalid.
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
