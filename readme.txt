@@ -28,3 +28,16 @@ It provides no UI - just install it and you are all set!
 1. Upload the plugin files to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. You are all set! There is nothing to configure. Your comment forms will contain the hidden token fields that will be properly validated upon submission.
+
+
+== Changelog ==
+
+= 1.0 =
+* Initial release.
+
+= 1.1 =
+This is a minor release that contains minimal changes. 
+
+ - Marks the plugin as tested up-to WordPress 5.3
+ - Fix in `composer.json` file that it required PHP^7.2 instead of intended ^7.1
+ - A micro optimization in the plugin to call the lambda function directly within the CSRF check.
