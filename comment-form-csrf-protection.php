@@ -56,9 +56,7 @@ add_action('pre_comment_on_post', function () {
 		);
 	};
 
-	$status = $status();
-
-	if (!$status) {
+	if (!$status()) {
 		wp_die('<p>' . __('Comment submission failed due to security 
 		validation failures. Please go back, refresh the page, and try again.') . '</p>',
 			__('Comment Submission Failed'),
