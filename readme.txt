@@ -2,7 +2,7 @@
 Contributors: ayeshrajans
 Tags: comments, spam, security, csrf
 Requires at least: 4.2
-Tested up to: 5.3
+Tested up to: 5.4
 Stable tag: 1.1
 Requires PHP: 7.1
 License: GPLv2 or later
