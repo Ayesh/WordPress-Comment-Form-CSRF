@@ -3,9 +3,9 @@
 Plugin Name: Comment Form CSRF Protection
 Plugin URI: https://wordpress.org/plugins/comment-form-csrf-protection
 Description: WordPress's default comment forms are not protected against Cross-Site Request Forgery. This plugin fixes that.
-Version: 1.0
+Version: 1.4
 Author: Ayesh Karunaratne
-Author URI: https://ayesh.me/open-source
+Author URI: https://aye.sh/open-source
 License: GPLv2 or later
 */
 
@@ -16,12 +16,12 @@ if (!function_exists('add_action')) {
 add_action('comment_form', function () {
 	/**
 	 * This looks paranoid, but we use 2 tokens here. Seed, the "build_id" with a
-	 * CSPRNG (PHP 7.0+). It's base64 encdoded to fit nicely within HTML attributes.
+	 * CSPRNG (PHP 7.0+). It's base64 encoded to fit nicely within HTML attributes.
 	 *
 	 * Generate a traditional wp_nonce that makes use of the user session ID
 	 * and has a tick function to prevent replay attacks.
 	 *
-	 * Secondly, we use out own csrf_token with a proper HMAC with sha256. wp_nonce
+	 * Secondly, we use our own csrf_token with a proper HMAC with sha256. wp_nonce
 	 * is generated with MD5, which we no longer consider secure enough.
 	 */
 	$fields               = [
@@ -37,7 +37,7 @@ add_action('comment_form', function () {
 });
 
 add_action('pre_comment_on_post', function () {
-	$status = function (): bool {
+	$status = static function (): bool {
 		if (!isset($_POST['build_id'], $_POST['wp_nonce'], $_POST['csrf_token'])) {
 			return FALSE;
 		}
